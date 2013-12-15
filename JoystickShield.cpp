@@ -28,7 +28,8 @@ JoystickShield::JoystickShield() {
 
     // Sparkfun Joystick shield connects the buttons to the following pins.
     // change it if you are using a different shield.
-    setButtonPins(2, 4, 3, 5, 6);
+    // pinSelect (joystick), pinUp, pinRight, pinDown, pinLeft, 
+    setButtonPins(8, 2, 3, 4, 5); // 6 is button E and 7 is button F
 
     // by default set the position to centered
     currentStatus = CENTER;
