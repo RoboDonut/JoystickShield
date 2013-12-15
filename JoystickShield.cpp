@@ -9,6 +9,12 @@
  * can do whatever you want with this stuff. If we meet some day, and you think
  * this stuff is worth it, you can buy me a beer or coffee in return - Sudar
  * ----------------------------------------------------------------------------
+  Confirgured for Nokia 5110 Joystick shield v2.4. (http://www.elecfreaks.com/wiki/index.php?title=Joystick_Shield)
+  remapped button pins. added 2 additional 'START' and "SELECT' buttons
+  modified yLow threshold
+
+  danielelijahsmith@gmail.com
+  https://github.com/RoboDonut
  */
 
 #include "JoystickShield.h"
@@ -56,7 +62,7 @@ void JoystickShield::setJoystickPins(byte pinX, byte pinY) {
 
 /**
  * Set the pins used by the buttons
- *
+ * modify setbutton pins function inputs to: byte pinJoy, byte pinUp, byte pinRight, byte pinDown, byte pinLeft, byte pinSelect, byte pinStart
  */
 void JoystickShield::setButtonPins(byte pinSelect, byte pinUp, byte pinRight, byte pinDown, byte pinLeft) {
     pin_joystick_button = pinSelect;

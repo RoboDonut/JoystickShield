@@ -1,6 +1,7 @@
 # JoystickShield
 
 JoystickShield is an [Arduino](http://arduino.cc) library that can be used with [JoystickShield](http://www.sparkfun.com/products/9760).
+**Configured for Nokia 5110 Joystick Shield v2.4 (http://www.elecfreaks.com/wiki/index.php?title=Joystick_Shield)
 
 The library supports both event based (callback mode) and the normal mode. Refer to the examples to find out how to use the library in both the modes.
 
