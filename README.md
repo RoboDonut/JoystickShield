@@ -1,4 +1,5 @@
 # JoystickShield
+THIS IS A FORK OF SUDAR'S JOYSTICK SHIELD SPECIFICALLY FOR THE NOKIA 5110 V2.4 (https://github.com/sudar/JoystickShield)THIS GUYS GETS ALL THE CREDIT I JUST REMAPPED AND ADDED STUFF FOR THE BOARD
 
 JoystickShield is an [Arduino](http://arduino.cc) library that can be used with [JoystickShield](http://www.sparkfun.com/products/9760).
 
@@ -29,9 +30,9 @@ Explanation/documentation of the library can be found in its [homepage](http://h
 
 The source code of this library and the examples are released under "THE BEER-WARE" license.
 
-I would, however, consider it a great courtesy if you could email me and tell me about your project and how this code was used, just for my own continued personal gratification :)
+Sudar would, however, consider it a great courtesy if you could email him and tell him about your project and how this code was used, just for my own continued personal gratification :)
 
-You can also find other ways to [make me happy](http://sudarmuthu.com/if-you-wanna-thank-me), if you liked this project.
+You can also find other ways to [make sudar happy](http://sudarmuthu.com/if-you-wanna-thank-me), if you liked this project.
 
 ## Note
 
