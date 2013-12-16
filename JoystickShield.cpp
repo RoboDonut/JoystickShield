@@ -64,12 +64,14 @@ void JoystickShield::setJoystickPins(byte pinX, byte pinY) {
  * Set the pins used by the buttons
  * modify setbutton pins function inputs to: byte pinJoy, byte pinUp, byte pinRight, byte pinDown, byte pinLeft, byte pinSelect, byte pinStart
  */
-void JoystickShield::setButtonPins(byte pinSelect, byte pinUp, byte pinRight, byte pinDown, byte pinLeft) {
-    pin_joystick_button = pinSelect;
+void JoystickShield::setButtonPins(byte pinJoy, byte pinUp, byte pinRight, byte pinDown, byte pinLeft, byte pinSelect, byte pinStart) {
+    pin_joystick_button = pinJoy;
     pin_up_button       = pinUp;
     pin_right_button    = pinRight;
     pin_down_button     = pinDown;
     pin_left_button     = pinLeft;
+	pin_select_button     = pinSelect;
+    pin_start_button     = pinStart;
 
     // set Button pins to input mode
     pinMode(pin_joystick_button, INPUT);
@@ -77,6 +79,8 @@ void JoystickShield::setButtonPins(byte pinSelect, byte pinUp, byte pinRight, by
     pinMode(pin_right_button   , INPUT);
     pinMode(pin_down_button    , INPUT);
     pinMode(pin_left_button    , INPUT);
+	pinMode(pin_select_button    , INPUT);
+	pinMode(pin_start_button    , INPUT);
 
     // Enable "pull-up resistors" for buttons
     digitalWrite(pin_joystick_button, HIGH);
@@ -84,6 +88,8 @@ void JoystickShield::setButtonPins(byte pinSelect, byte pinUp, byte pinRight, by
     digitalWrite(pin_right_button   , HIGH);
     digitalWrite(pin_down_button    , HIGH);
     digitalWrite(pin_left_button    , HIGH);
+	digitalWrite(pin_select_button    , HIGH);
+	digitalWrite(pin_start_button    , HIGH);
 }
 
 /**
@@ -167,6 +173,12 @@ void JoystickShield::processEvents() {
 
     if (digitalRead(pin_left_button) == LOW) {
         currentButton = LEFT_BUTTON;
+    }
+	if (digitalRead(pin_select_button) == LOW) {
+        currentButton = SELECT_BUTTON;
+    }
+	if (digitalRead(pin_start_button) == LOW) {
+        currentButton = START_BUTTON;
     }
 
 }
@@ -406,6 +418,28 @@ bool JoystickShield::isLeftButton() {
     } else {
         return false;
     }
+/**
+ * Select button pressed
+ *
+ */
+bool JoystickShield::isSelectButton() {
+    if (currentButton == SELECT_BUTTON) {
+        clearButtonStates();
+        return true;
+    } else {
+        return false;
+    }
+/**
+ * Start button pressed
+ *
+ */
+bool JoystickShield::isLeftButton() {
+    if (currentButton == START_BUTTON) {
+        clearButtonStates();
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /**
@@ -475,7 +509,12 @@ void JoystickShield::onDownButton(void (*downButtonCallback)(void)) {
 void JoystickShield::onLeftButton(void (*leftButtonCallback)(void)) {
     this->leftButtonCallback = leftButtonCallback;
 }
-
+void JoystickShield::onSelectButton(void (*selectButtonCallback)(void)) {
+    this->selectButtonCallback = selectButtonCallback;
+}
+void JoystickShield::onStartButton(void (*startButtonCallback)(void)) {
+    this->startButtonCallback = startButtonCallback;
+}
 /****************************************************************** */
 
 /**
@@ -508,4 +547,6 @@ void JoystickShield::initializeCallbacks() {
     rightButtonCallback = NULL;
     downButtonCallback  = NULL;
     leftButtonCallback  = NULL;
+	selectButtonCallback  = NULL;
+	startButtonCallback  = NULL;
 }
