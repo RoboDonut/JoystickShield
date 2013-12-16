@@ -35,7 +35,7 @@ JoystickShield::JoystickShield() {
     // Sparkfun Joystick shield connects the buttons to the following pins.
     // change it if you are using a different shield.
     // pinSelect (joystick), pinUp, pinRight, pinDown, pinLeft, 
-    setButtonPins(8, 2, 3, 4, 5); // 6 is button E and 7 is button F
+    setButtonPins(8, 2, 3, 4, 5,6,7); // 6 is button E and 7 is button F
 
     // by default set the position to centered
     currentStatus = CENTER;
@@ -244,7 +244,12 @@ void JoystickShield::processCallbacks() {
     if (isLeftButton() && leftButtonCallback != NULL) {
         leftButtonCallback();
     }
-
+	if (isSelectButton() && selectButtonCallback != NULL) {
+        selectButtonCallback();
+    }
+	if (isStartButton() && startButtonCallback != NULL) {
+        startButtonCallback();
+    }
 }
 
 /**
@@ -418,6 +423,7 @@ bool JoystickShield::isLeftButton() {
     } else {
         return false;
     }
+}
 /**
  * Select button pressed
  *
@@ -429,11 +435,12 @@ bool JoystickShield::isSelectButton() {
     } else {
         return false;
     }
+}
 /**
  * Start button pressed
  *
  */
-bool JoystickShield::isLeftButton() {
+bool JoystickShield::isStartButton() {
     if (currentButton == START_BUTTON) {
         clearButtonStates();
         return true;
