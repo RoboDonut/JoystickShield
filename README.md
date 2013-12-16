@@ -1,7 +1,9 @@
 # JoystickShield
 
 JoystickShield is an [Arduino](http://arduino.cc) library that can be used with [JoystickShield](http://www.sparkfun.com/products/9760).
-**Configured for Nokia 5110 Joystick Shield v2.4 (http://www.elecfreaks.com/wiki/index.php?title=Joystick_Shield)
+
+Configured for Nokia 5110 Joystick Shield v2.4 (http://www.elecfreaks.com/wiki/index.php?title=Joystick_Shield). Nokia 5110 v2.4 stacks nicely with Ardunio Uno R1
+
 
 The library supports both event based (callback mode) and the normal mode. Refer to the examples to find out how to use the library in both the modes.
 
@@ -10,6 +12,7 @@ The library supports the following events
 *   All 8 directions of Joystick. (Up, RightUp, Right, RightDown, Down, LeftDown, Left and LeftUp)
 *   Joystick button press
 *   All 4 button press (Up, Right, Down, Left)
+*   Start and Select button press on the Nokia 5110
 
 ## Examples
 
