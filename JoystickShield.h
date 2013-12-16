@@ -47,7 +47,9 @@ enum ButtonStates {
     UP_BUTTON,
     RIGHT_BUTTON,
     DOWN_BUTTON,
-    LEFT_BUTTON    //5
+    LEFT_BUTTON,
+	SELECT_BUTTON,
+	START_BUTTON	   //7
 };
 
 /**
@@ -60,7 +62,7 @@ public:
     JoystickShield(); // constructor
 
     void setJoystickPins (byte pinX, byte pinY);
-    void setButtonPins(byte pinSelect, byte pinUp, byte pinRight, byte pinDown, byte pinLeft);
+    void setButtonPins(byte pinJoy, byte pinUp, byte pinRight, byte pinDown, byte pinLeft, byte pinSelect, byte pinStart);
     void setThreshold(int xLow, int xHigh, int yLow, int yHigh);
 
     void processEvents();
@@ -83,6 +85,8 @@ public:
     bool isRightButton();
     bool isDownButton();
     bool isLeftButton();
+	bool isSelectButton();
+	bool isStartButton();
 
     // Joystick callbacks
     void onJSCenter(void (*centerCallback)(void));
@@ -101,6 +105,8 @@ public:
     void onRightButton(void (*rightButtonCallback)(void));
     void onDownButton(void (*downButtonCallback)(void));
     void onLeftButton(void (*leftButtonCallback)(void));
+	void onSelectButton(void (*SelectButtonCallback)(void));
+	void onStartButton(void (*StartButtonCallback)(void));
 
 private:
 
@@ -120,6 +126,8 @@ private:
     byte pin_right_button;
     byte pin_down_button;
     byte pin_left_button;
+	byte pin_select_button;
+	byte pin_start_button;
 
     //current states of Joystick
     JoystickStates currentStatus;
@@ -144,6 +152,8 @@ private:
     void (*rightButtonCallback)(void);
     void (*downButtonCallback)(void);
     void (*leftButtonCallback)(void);
+	void (*selectButtonCallback)(void);
+    void (*startButtonCallback)(void);
 
     // helper functions
     void clearButtonStates();
