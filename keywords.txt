@@ -41,6 +41,8 @@ isUpButton	KEYWORD2
 isRightButton	KEYWORD2
 isDownButton	KEYWORD2
 isLeftButton	KEYWORD2
+isSelectButton	KEYWORD2
+isStartButton	KEYWORD2
 
 # Joystick callbacks Functions
 
@@ -61,6 +63,8 @@ onUpButton	KEYWORD2
 onRightButton	KEYWORD2
 onDownButton	KEYWORD2
 onLeftButton	KEYWORD2
+onSelectButton	KEYWORD2
+onStartButton	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
@@ -86,3 +90,5 @@ UP_BUTTON	LITERAL1
 RIGHT_BUTTON	LITERAL1
 DOWN_BUTTON	LITERAL1
 LEFT_BUTTON	LITERAL1
+SELECT_BUTTON LITERAL1
+START_BUTON LITERAL1
