@@ -557,3 +557,69 @@ void JoystickShield::initializeCallbacks() {
 	selectButtonCallback  = NULL;
 	startButtonCallback  = NULL;
 }
+/**
+ * Calibrate Joystick
+ *
+ */
+void JoystickShield::calibrateShield(){
+	bool xHigh= false;
+	bool xLow= false;
+	bool yHigh= false;
+	bool yLow= false;
+
+	int newXhigh = 0;
+	int newXlow = 0;
+	int newYhigh = 0;
+	int newXlow = 0;
+
+	while (isCenter() == false){//determine if calbration is needed
+		//determine what needs to be calibrated
+		if (isRightUp() || isRight() || isRightDown()){
+			xHigh = true;
+			if isRightUp(){
+				yHigh = true;
+			}
+			if isRightDown(){
+				yLow = true;
+			}
+		}
+		else if (isLeftUp() || isLeft() || isLiftDown()) {
+			xLow = true;
+			if isLefttUp(){
+				yHigh = true;
+			}
+			if isLeftDown(){
+				yLow = true;
+			}
+		}
+		else if (isUp){
+			yHigh = true
+		}
+		else if (isDown()){
+			yLow = true
+		}
+		else{
+			//something is dreadfully wrong
+		}
+
+		
+		// adjust  values
+		if (xHigh){
+			//adjust x_threshold_high
+			x_threshold_high += 5;
+		}
+		if (xLow){
+			//adjust x_threshold_low
+			x_threshold_low += 5;
+		}
+		if (yHigh){
+			//adjust y_threshold_high
+			y_threshold_high += 5;
+		}
+		if (yLow){
+			//adjust y_threshold_low
+			y_threshold_low +=5;
+		}
+		
+	}
+}

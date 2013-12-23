@@ -158,6 +158,7 @@ private:
     // helper functions
     void clearButtonStates();
     void initializeCallbacks();
+	void calibrateShield();
 };
 
 #endif
